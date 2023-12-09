@@ -48,7 +48,7 @@ const updateWord = (payload) => new Promise((resolve, reject) => {
     body: JSON.stringify(payload),
   })
     .then((response) => response.json())
-    .then(resolve)
+    .then((data) => resolve(data))
     .catch(reject);
 });
 
@@ -82,52 +82,64 @@ const getSingleWord = (firebaseKey) => new Promise((resolve, reject) => {
 // this filter stuff def belongs somewhere else. another file?
 
 // FILTER BY FARSI
-const getFarsiWords = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo=""`, {
+const getFarsiWords = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => {
+      const farsiWords = Object.values(data).filter((item) => item.language === 'farsi');
+      resolve(farsiWords);
+    })
     .catch(reject);
 });
 // need the same for uzbeki, turkish, and english
 // FILTER BY UZBEKI
-const getUzbekiWords = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo=""`, {
+const getUzbekiWords = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => {
+      const uzbekiWords = Object.values(data).filter((item) => item.language === 'uzbeki');
+      resolve(uzbekiWords);
+    })
     .catch(reject);
 });
 // FILTER BY TURKISH
-const getTurkishWords = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo=""`, {
+const getTurkishWords = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => {
+      const turkishWords = Object.values(data).filter((item) => item.language === 'turkish');
+      resolve(turkishWords);
+    })
     .catch(reject);
 });
 // FILTER BY ENGLISH
-const getEnglishWords = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo=""`, {
+const getEnglishWords = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => {
+      const englishWords = Object.values(data).filter((item) => item.language === 'english');
+      resolve(englishWords);
+    })
     .catch(reject);
 });
 

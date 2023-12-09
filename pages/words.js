@@ -10,8 +10,10 @@
 // const showWords = (array) => {
 //   clearDom();
 
-//   const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-book-btn">Add A Book</button>';
-//   renderToDOM('#add-button', btnString);
+//   const btnString ='<button type="button" class="btn btn-primary">Primary</button>'
+//   <button type="button" class="btn btn-secondary">Secondary</button>
+//   <><button type="button" class="btn btn-success">Success</button><button type="button" class="btn btn-danger">Danger</button></>';
+//   renderToDOM('#farsi-button', btnString);
 
 //   let domString = '';
 //   array.forEach((item) => {

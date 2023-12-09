@@ -1,6 +1,6 @@
-import { create } from 'domain';
 import client from '../utils/client';
 
+// API CALLS FOR BOOKS
 const endpoint = client.databaseURL;
 
 // GET ALL WORDS
@@ -50,7 +50,19 @@ const updateWord = (payload) => new Promise((resolve, reject) => {
   .catch(reject);
 });
 
-
+// TODO: DELETE WORD
+const deleteWord = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    // not using object b/c only deleting 1 thing. no need for array of objects
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
 
 

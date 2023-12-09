@@ -2,7 +2,7 @@ import { deleteWord, getWords, getSingleWord } from '../api/wordData';
 import { showWords } from '../pages/words';
 import addWordForm from '../components/forms/addWordForm';
 
-const domEvents = (user) => {
+const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     // TODO: CLICK EVENT FOR DELETING A WORD
     if (e.target.id.includes('delete-word')) {
@@ -12,7 +12,7 @@ const domEvents = (user) => {
         const [, firebaseKey] = e.target.id.split('--');
 
         deleteWord(firebaseKey).then(() => {
-          getWords(user.uid).then(showWords);
+          getWords().then(showWords);
         });
       }
     }

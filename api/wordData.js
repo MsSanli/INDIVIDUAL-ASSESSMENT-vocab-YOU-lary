@@ -66,7 +66,7 @@ const deleteWord = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: GET SINGLE BOOK
+// TODO: GET SINGLE WORD
 const getSingleWord = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocab/${firebaseKey}.json`, {
     method: 'GET',
@@ -82,74 +82,63 @@ const getSingleWord = (firebaseKey) => new Promise((resolve, reject) => {
 // this filter stuff def belongs somewhere else. another file?
 
 // FILTER BY FARSI
-// const getFarsiWords = (uid) => new Promise((resolve, reject) => {
-//   fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       const farsiWord = Object.values(data).filter((item) => item.something);
-// // i feel like something is wrong here. too soon
-//       resolve(farsiWord);
-//     })
-//     .catch(reject);
-// });
-// // need the same for uzbeki, turkish, and english
-// // FILTER BY UZBEKI
-// const getUzbekiWords = (uid) => new Promise((resolve, reject) => {
-//   fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       const uzbekiWord = Object.values(data).filter((item) => item.something);
-// // i feel like something is wrong here. too soon
-//       resolve(uzbekiWord);
-//     })
-//     .catch(reject);
+const getFarsiWords = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo=""`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+// need the same for uzbeki, turkish, and english
+// FILTER BY UZBEKI
+const getUzbekiWords = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo=""`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+// FILTER BY TURKISH
+const getTurkishWords = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo=""`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+// FILTER BY ENGLISH
+const getEnglishWords = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo=""`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
 
-//     // FILTER BY TURKISH
-// const getTurkishWords = (uid) => new Promise((resolve, reject) => {
-//   fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       const TurkishWord = Object.values(data).filter((item) => item.something);
-// // i feel like something is wrong here. too soon
-//       resolve(TurkishWord);
-//     })
-//     .catch(reject);
-
-// // FILTER BY ENGLISH
-// const getEnglishWords = (uid) => new Promise((resolve, reject) => {
-//   fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       const englishWord = Object.values(data).filter((item) => item.something);
-// // i feel like something is wrong here. too soon
-//       resolve(englishWord);
-//     })
-//     .catch(reject);
-// });
 export {
   getWords,
   createWord,
   updateWord,
   deleteWord,
-  getSingleWord
+  getSingleWord,
+  getFarsiWords,
+  getUzbekiWords,
+  getEnglishWords,
+  getTurkishWords
 };

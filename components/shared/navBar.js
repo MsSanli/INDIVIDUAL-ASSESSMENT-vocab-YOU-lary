@@ -17,7 +17,6 @@ const navBar = () => {
         <div class="collapse navbar-collapse" id="navbarText">
           </ul>
           <span class="navbar-text">
-            <div id="cart-button"></div>
             <div id="logout-button"></div>
           </span>
         </div>

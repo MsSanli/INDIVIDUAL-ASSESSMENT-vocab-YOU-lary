@@ -5,7 +5,7 @@ const navigationEvents = () => {
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);
   // create entry
-  document.querySelector('#create-entry').addEventListener('click', () => {
+  document.querySelector('#add-word-btn').addEventListener('click', () => {
   // add form function
   });
 };

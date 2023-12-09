@@ -7,7 +7,7 @@ const navBar = () => {
     <a class="navbar-brand" href="#">
     <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
   </a>
-  <a class="nav-link" href="#" id="create-entry">
+  <a class="nav-link" href="#" id="add-word-btn">
                 Create Entry <span class="sr-only">(current)</span>
               </a>
         <a class="navbar-brand title" href="#">Vocabulary</a>

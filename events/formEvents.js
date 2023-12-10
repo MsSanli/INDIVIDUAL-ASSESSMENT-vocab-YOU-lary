@@ -5,19 +5,19 @@ const formEvents = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
     //  CLICK EVENT FOR SUBMITTING FORM FOR ADDING A WORD
-    if (e.target.id.includes('submit')) {
+    if (e.target.id.includes('submit-word')) {
       const payload = {
         title: document.querySelector('#title').value,
         definition: document.querySelector('#definition').value,
-        language: document.querySelector('#language').value
-        // uid: 'user.uid'
+        language: document.querySelector('#language').value,
+        uid: user.uid
       };
 
       createWord(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
 
         updateWord(patchPayload).then(() => {
-          getWords().then(showWords);
+          getWords(user.uid).then(showWords);
         });
       });
     }
@@ -27,13 +27,13 @@ const formEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
         title: document.querySelector('#title').value,
-        description: document.querySelector('#definition').value,
-        // timestamp: document.querySelector('#timestamp').value,
-        firebaseKey,
+        definition: document.querySelector('#definition').value,
+        language: document.querySelector('#language').value,
+        firebaseKey
       };
 
       updateWord(payload).then(() => {
-        getWords().then(showWords);
+        getWords(user.uid).then(showWords);
       });
     }
   });

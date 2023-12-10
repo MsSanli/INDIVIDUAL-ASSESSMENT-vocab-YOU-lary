@@ -12,8 +12,8 @@ const showWords = (array) => {
 
   const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-word-btn">Add A Word</button>';
   renderToDOM('#add-button', btnString);
-  let domString = '';
 
+  let domString = '';
   array.forEach((item) => {
     domString += `
     <div class="card" style="width: 18rem;">

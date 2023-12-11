@@ -28,12 +28,6 @@ const domEvents = (user) => {
 
       getSingleWord(firebaseKey).then((wordObj) => addWordForm(wordObj));
     }
-    // // TODO: CLICK EVENT FOR VIEW WORD DETAILS
-    // if (e.target.id.includes('view-word-btn')) {
-    //   const [, firebaseKey] = e.target.id.split('--');
-
-    //   getWordDetails(firebaseKey).then(viewWord);
-    // }
   });
 };
 export { domEvents, deleteWord, getWords };

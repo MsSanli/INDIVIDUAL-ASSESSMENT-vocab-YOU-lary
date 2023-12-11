@@ -6,8 +6,8 @@ const endpoint = client.databaseURL;
 // GET ALL WORDS
 // Object.values is used b/c mult objects
 // catch catches any errors
-const getWords = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocab.json?orderBy"uid"&equalTo="${uid}"`, {
+const getWords = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

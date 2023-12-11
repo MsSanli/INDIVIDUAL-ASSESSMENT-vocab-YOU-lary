@@ -1,6 +1,5 @@
 import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
-// import selectWord from './selectWord';
 
 // USING THIS FORM FOR BOTH CREATE AND UPDATE
 const addWordForm = (obj = {}) => {

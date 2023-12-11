@@ -1,4 +1,3 @@
-// import stuff will go here. showWords from words pages prob
 import navBar from '../components/shared/navBar';
 import logoutButton from '../components/logoutButton';
 import domBuilder from '../components/shared/domBuilder';

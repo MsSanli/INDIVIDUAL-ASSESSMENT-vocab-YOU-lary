@@ -78,3 +78,9 @@ init();
 ## More Info and Resources on Webpack
 - Visit the [Webpack documentation](https://webpack.js.org/concepts/) if you want to explore more.
 - [Info on our Webpack Config](https://github.com/nss-nightclass-projects/Night-Class-Resources/blob/master/book-2-patterns-and-tools/chapters/webpack-configure.md)
+
+
+https://lucid.app/lucidchart/d49299d3-c9ee-4a51-a86d-cbed39c41f2f/edit?view_items=CDxUovOFXtnz&invitationId=inv_e72eec30-8dc7-4942-a239-b07c1a6a4058
+
+
+https://dbdiagram.io/d/656fbb6256d8064ca0758796

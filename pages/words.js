@@ -1,36 +1,33 @@
-// import clearDom from '../utils/clearDom';
-// import renderToDOM from '../utils/renderToDom';
-// import { getWords } from '../api/wordData';
+import clearDom from '../utils/clearDom';
+import renderToDOM from '../utils/renderToDom';
+import { getWords } from '../api/wordData';
 
-// const emptyWords = () => {
-//   const domString = '<h1>No Words</h1>';
-//   renderToDOM('#store', domString);
-// };
+const emptyWords = () => {
+  const domString = '<h1>No Words</h1>';
+  renderToDOM('#store', domString);
+};
 
-// const showWords = (array) => {
-//   clearDom();
+const showWords = (array) => {
+  clearDom();
 
-//   const btnString ='<button type="button" class="btn btn-primary">Primary</button>'
-//   <button type="button" class="btn btn-secondary">Secondary</button>
-//   <><button type="button" class="btn btn-success">Success</button><button type="button" class="btn btn-danger">Danger</button></>';
-//   renderToDOM('#farsi-button', btnString);
+  const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-word-btn">Add A Word</button>';
+  renderToDOM('#add-button', btnString);
 
-//   let domString = '';
-//   array.forEach((item) => {
-//     domString += `
-//       <div class="card">
-//         <img class="card-img-top" src=${item.image} alt=${item.title} style="height: 400px;">
-//         <div class="card-body" style="height: 180px;">
-//           <h5 class="card-title">${item.title}</h5>
-//             <p class="card-text bold">${item.sale ? `<span class="badge badge-info sale-badge"><i class="fa fa-bell" aria-hidden="true"></i> Sale</span> $${item.price}` : `$${item.price}`}</p>
-//             <hr>
-//             <i class="btn btn-success fas fa-eye" id="view-book-btn--${item.firebaseKey}"></i>
-//             <i id="edit-book-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
-//             <i id="delete-book-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
-//         </div>
-//       </div>`;
-//   });
-//   renderToDOM('#store', domString);
-// };
+  let domString = '';
+  array.forEach((item) => {
+    domString += `
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">${item.title}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">${item.definition}</h6>
+        <p class="card-text">${item.language}</p>
+        <a id="edit-word-btn--${item.firebaseKey}" href="#" class="btn btn-edit">Edit</a>
+        <a id="delete-word-btn--${item.firebaseKey}" href="#" class="btn btn-delete">Delete</a>
+      </div>
+    </div>`;
+  });
 
-// export { showWords, emptyWords, getWords };
+  renderToDOM('#store', domString);
+};
+
+export { showWords, emptyWords, getWords };

@@ -15,14 +15,15 @@ const addWordForm = (obj = {}) => {
         <label for="definition">Definition</label>
         <textarea class="form-control" placeholder="What does it mean tho?" id="definition" style="height: 100px">${obj.definition || ''}</textarea>
       </div>
-      <div class="form-group" id="select-word">
+      <div class="form-group">
+        <label for="language">Language</label>
+        <input type="language" class="form-control" id="language" aria-describedby="Language" placeholder="Enter Lang" value="${obj.language || ''}" required>
       </div>
-      <button type="submit-word" class="btn btn-primary">Submit Word
+      <button type="submit" class="btn btn-primary">Submit Word
       </button>
     </form>`;
 
   renderToDOM('#form-container', domString);
-  // selectWord(`${obj.title || ''}`);
 };
 
 export default addWordForm;

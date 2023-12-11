@@ -2,7 +2,8 @@
 import navBar from '../components/shared/navBar';
 import logoutButton from '../components/logoutButton';
 import domBuilder from '../components/shared/domBuilder';
-import { getWords, showWords } from '../pages/words';
+import { showWords } from '../pages/words';
+import { getWords } from '../api/wordData';
 import navigationEvents from '../events/navigationEvents';
 import { domEvents } from '../events/domEvents';
 import formEvents from '../events/formEvents';

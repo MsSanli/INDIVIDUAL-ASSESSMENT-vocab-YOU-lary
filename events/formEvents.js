@@ -1,7 +1,7 @@
 import { showWords } from '../pages/words';
 import { createWord, updateWord, getWords } from '../api/wordData';
 
-const formEvents = () => {
+const formEvents = (user) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
     //  CLICK EVENT FOR SUBMITTING FORM FOR ADDING A WORD

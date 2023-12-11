@@ -1,6 +1,7 @@
 import { signOut } from '../utils/auth';
-import { showWords, getWords } from '../pages/words';
+import { showWords } from '../pages/words';
 import {
+  getWords,
   getFarsiWords,
   getUzbekiWords,
   getTurkishWords,
@@ -8,34 +9,34 @@ import {
 } from '../api/wordData';
 
 // navigation events
-const navigationEvents = () => {
+const navigationEvents = (user) => {
   // LOGOUT BUTTON
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);
 
   // FARSI WORDS
   document.querySelector('#farsi-words').addEventListener('click', () => {
-    getFarsiWords().then(showWords);
+    getFarsiWords(user.uid).then(showWords);
   });
 
   // UZBEKI WORDS
   document.querySelector('#uzbeki-words').addEventListener('click', () => {
-    getUzbekiWords().then(showWords);
+    getUzbekiWords(user.uid).then(showWords);
   });
 
   // TURKISH WORDS
   document.querySelector('#turkish-words').addEventListener('click', () => {
-    getTurkishWords().then(showWords);
+    getTurkishWords(user.uid).then(showWords);
   });
 
   // ENGLISH WORDS
   document.querySelector('#english-words').addEventListener('click', () => {
-    getEnglishWords().then(showWords);
+    getEnglishWords(user.uid).then(showWords);
   });
 
   // TODO: ALL WORDS
   document.querySelector('#all-words').addEventListener('click', () => {
-    getWords().then(showWords);
+    getWords(user.uid).then(showWords);
   });
 
   // STRETCH: SEARCH
